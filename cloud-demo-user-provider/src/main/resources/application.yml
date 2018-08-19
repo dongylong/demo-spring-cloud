@@ -1,0 +1,42 @@
+server:
+  port: 7900
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
+    show-sql: true
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://127.0.0.1:3306/project_user?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+  application:
+    name: cloud-demo-user-provider
+    instance_id:
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.noriental: DEBUG
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:password@localhost:8761/eureka
+    healthcheck:
+          enabled: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id}:${server.port}
+    metadata-map:
+      # zone eureka 可以理解行为 会影响客户端
+      #自定义不会影响
+      zone:ABC
+    #心跳 线上禁用
+    lease-renewal-interval-in-seconds: 5
