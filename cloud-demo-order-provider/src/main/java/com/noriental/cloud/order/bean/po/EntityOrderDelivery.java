@@ -6,4 +6,5 @@ package com.noriental.cloud.order.bean.po;
  * @project demo-spring-cloud
  */
 public class EntityOrderDelivery {
+
 }

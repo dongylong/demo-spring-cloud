@@ -8,7 +8,7 @@
         <result column="product_code" property="productCode" jdbcType="VARCHAR"/>
         <result column="product_id" property="productId" jdbcType="BIGINT"/>
         <result column="product_name" property="productName" jdbcType="VARCHAR"/>
-        <result column="product_picurl" property="productPicurl" jdbcType="VARCHAR"/>
+        <result column="product_pic_url" property="productPicUrl" jdbcType="VARCHAR"/>
         <result column="sku_id" property="skuId" jdbcType="BIGINT"/>
         <result column="sku_code" property="skuCode" jdbcType="VARCHAR"/>
         <result column="sku_name" property="skuName" jdbcType="VARCHAR"/>
@@ -46,6 +46,11 @@
         <result column="payment_account" property="paymentAccount" jdbcType="VARCHAR"/>
         <result column="refund_sn" property="refundSn" jdbcType="VARCHAR"/>
     </resultMap>
+    <resultMap id="BaseResultMapDO" type="com.noriental.cloud.order.bean.doentity.OrderRevokeDo">
+        <result column="active_group_id" property="activeGroupId" jdbcType="BIGINT"/>
+        <result column="activity_type" property="activityType" jdbcType="TINYINT"/>
+        <result column="payment_order_id" property="paymentOrderId" jdbcType="BIGINT"/>
+    </resultMap>
     <sql id="Base_Column_List">
     id, order_delivery_id, order_delivery_code, product_code, product_id, product_name, 
     product_picurl, sku_id, sku_code, sku_name, count, create_time, create_by, consignee_name, 
@@ -55,16 +60,21 @@
     express_company, express_num, refund_serial_number, refund_failure_reason, supplier_id, 
     supplier_name, is_whole, payment_type, payment_amount, payment_account, refund_sn
   </sql>
-    <select id="selectPagesByOrderAfterId"  resultMap="BaseResultMap">
+    <sql id="Base_Column_List_Delivery">
+    active_group_id,activity_type,payment_order_id
+  </sql>
+    <select id="selectPagesByOrderAfterId" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
         from entity_order_revoke
         where order_after_id = #{orderAfterId}
         ORDER BY a.id DESC
     </select>
-    <select id="selectByOrderAfterId"  resultMap="BaseResultMap">
+    <select id="selectByOrderAfterId"
+            resultType="com.noriental.cloud.order.bean.doentity.OrderRevokeDo">
         SELECT
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List"/>,
+        <include refid="Base_Column_List_Delivery"/>
         from entity_order_revoke
         where order_after_id = #{orderAfterId}
         ORDER BY a.id DESC
@@ -119,7 +129,7 @@
       product_code = #{productCode,jdbcType=VARCHAR},
       product_id = #{productId,jdbcType=BIGINT},
       product_name = #{productName,jdbcType=VARCHAR},
-      product_picurl = #{productPicurl,jdbcType=VARCHAR},
+      product_pic_url = #{productPicUrl,jdbcType=VARCHAR},
       sku_id = #{skuId,jdbcType=BIGINT},
       sku_code = #{skuCode,jdbcType=VARCHAR},
       sku_name = #{skuName,jdbcType=VARCHAR},
@@ -158,4 +168,7 @@
       refund_sn = #{refundSn,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+    <update id="updateOrderRevokeResults">
+
+    </update>
 </mapper>

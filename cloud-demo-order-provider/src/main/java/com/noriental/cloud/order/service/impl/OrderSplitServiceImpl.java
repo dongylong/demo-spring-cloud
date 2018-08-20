@@ -1,7 +1,7 @@
 package com.noriental.cloud.order.service.impl;
 
-import com.noriental.cloud.order.bean.po.EntityOrderPayment;
-import com.noriental.cloud.order.mapper.EntityOrderPaymentMapper;
+import com.noriental.cloud.order.bean.po.EntityOrderPurchase;
+import com.noriental.cloud.order.mapper.EntityOrderPurchaseMapper;
 import com.noriental.cloud.order.service.OrderSplitService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,9 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class OrderSplitServiceImpl implements OrderSplitService {
     @Autowired
-    private EntityOrderPaymentMapper orderPaymentMapper;
+    private EntityOrderPurchaseMapper orderPaymentMapper;
     @Override
-    public void insertIntoPayment(EntityOrderPayment orderPayment) {
+    public void insertIntoPayment(EntityOrderPurchase orderPayment) {
         orderPaymentMapper.insert(orderPayment);
     }
 }

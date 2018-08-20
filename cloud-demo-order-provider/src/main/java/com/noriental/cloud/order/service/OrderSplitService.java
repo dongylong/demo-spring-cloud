@@ -1,6 +1,6 @@
 package com.noriental.cloud.order.service;
 
-import com.noriental.cloud.order.bean.po.EntityOrderPayment;
+import com.noriental.cloud.order.bean.po.EntityOrderPurchase;
 
 /**
  * @author dongyl
@@ -8,5 +8,5 @@ import com.noriental.cloud.order.bean.po.EntityOrderPayment;
  * @project demo-spring-cloud
  */
 public interface OrderSplitService {
-    public void insertIntoPayment(EntityOrderPayment orderPayment);
+    public void insertIntoPayment(EntityOrderPurchase orderPayment);
 }

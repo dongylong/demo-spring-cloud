@@ -1,34 +1,34 @@
-package com.noriental.cloud.order.bean.po;
+package com.noriental.cloud.order.bean.vo;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class EntityOrderRevoke {
-    private long id;
+public class OrderRevokeVo {
+    private Long id;
 
-    private long orderDeliveryId;
+    private Long orderDeliveryId;
 
-    private long orderDeliveryCode;
+    private Long orderDeliveryCode;
 
     private String productCode;
 
-    private long productId;
+    private Long productId;
 
     private String productName;
 
     private String productPicUrl;
 
-    private long skuId;
+    private Long skuId;
 
     private String skuCode;
 
     private String skuName;
 
-    private int count;
+    private Integer count;
 
     private Date createTime;
 
-    private long createBy;
+    private Long createBy;
 
     private String consigneeName;
 
@@ -36,27 +36,27 @@ public class EntityOrderRevoke {
 
     private Date updateTime;
 
-    private long lastUpdBy;
+    private Long lastUpdBy;
 
-    private long orderAfterId;
+    private Long orderAfterId;
 
-    private int orderAfterType;
+    private Boolean orderAfterType;
 
     private BigDecimal orderAfterAmount;
 
-    private int businessResults;
+    private Boolean businessResults;
 
     private String remarks;
 
-    private int forumResults;
+    private Integer forumResults;
 
-    private int orderAfterStatus;
+    private Byte orderAfterStatus;
 
-    private int rufundCause;
+    private Byte rufundCause;
 
     private String rufundRemark;
 
-    private int orderAfterStar;
+    private Integer orderAfterStar;
 
     private String orderAfterEvaluate;
 
@@ -72,17 +72,17 @@ public class EntityOrderRevoke {
 
     private String expressNum;
 
-    private long refundSerialNumber;
+    private Long refundSerialNumber;
 
     private String refundFailureReason;
 
-    private long supplierId;
+    private Long supplierId;
 
     private String supplierName;
 
-    private int isWhole;
+    private Boolean isWhole;
 
-    private int paymentType;
+    private Byte paymentType;
 
     private BigDecimal paymentAmount;
 
@@ -90,27 +90,27 @@ public class EntityOrderRevoke {
 
     private String refundSn;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public long getOrderDeliveryId() {
+    public Long getOrderDeliveryId() {
         return orderDeliveryId;
     }
 
-    public void setOrderDeliveryId(long orderDeliveryId) {
+    public void setOrderDeliveryId(Long orderDeliveryId) {
         this.orderDeliveryId = orderDeliveryId;
     }
 
-    public long getOrderDeliveryCode() {
+    public Long getOrderDeliveryCode() {
         return orderDeliveryCode;
     }
 
-    public void setOrderDeliveryCode(long orderDeliveryCode) {
+    public void setOrderDeliveryCode(Long orderDeliveryCode) {
         this.orderDeliveryCode = orderDeliveryCode;
     }
 
@@ -119,14 +119,14 @@ public class EntityOrderRevoke {
     }
 
     public void setProductCode(String productCode) {
-        this.productCode = productCode;
+        this.productCode = productCode == null ? null : productCode.trim();
     }
 
-    public long getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(long productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
@@ -135,7 +135,7 @@ public class EntityOrderRevoke {
     }
 
     public void setProductName(String productName) {
-        this.productName = productName;
+        this.productName = productName == null ? null : productName.trim();
     }
 
     public String getProductPicUrl() {
@@ -146,11 +146,19 @@ public class EntityOrderRevoke {
         this.productPicUrl = productPicUrl;
     }
 
-    public long getSkuId() {
+    public Boolean getWhole() {
+        return isWhole;
+    }
+
+    public void setWhole(Boolean whole) {
+        isWhole = whole;
+    }
+
+    public Long getSkuId() {
         return skuId;
     }
 
-    public void setSkuId(long skuId) {
+    public void setSkuId(Long skuId) {
         this.skuId = skuId;
     }
 
@@ -159,7 +167,7 @@ public class EntityOrderRevoke {
     }
 
     public void setSkuCode(String skuCode) {
-        this.skuCode = skuCode;
+        this.skuCode = skuCode == null ? null : skuCode.trim();
     }
 
     public String getSkuName() {
@@ -167,14 +175,14 @@ public class EntityOrderRevoke {
     }
 
     public void setSkuName(String skuName) {
-        this.skuName = skuName;
+        this.skuName = skuName == null ? null : skuName.trim();
     }
 
-    public int getCount() {
+    public Integer getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
 
@@ -186,11 +194,11 @@ public class EntityOrderRevoke {
         this.createTime = createTime;
     }
 
-    public long getCreateBy() {
+    public Long getCreateBy() {
         return createBy;
     }
 
-    public void setCreateBy(long createBy) {
+    public void setCreateBy(Long createBy) {
         this.createBy = createBy;
     }
 
@@ -199,7 +207,7 @@ public class EntityOrderRevoke {
     }
 
     public void setConsigneeName(String consigneeName) {
-        this.consigneeName = consigneeName;
+        this.consigneeName = consigneeName == null ? null : consigneeName.trim();
     }
 
     public String getConsigneeMobile() {
@@ -207,7 +215,7 @@ public class EntityOrderRevoke {
     }
 
     public void setConsigneeMobile(String consigneeMobile) {
-        this.consigneeMobile = consigneeMobile;
+        this.consigneeMobile = consigneeMobile == null ? null : consigneeMobile.trim();
     }
 
     public Date getUpdateTime() {
@@ -218,27 +226,27 @@ public class EntityOrderRevoke {
         this.updateTime = updateTime;
     }
 
-    public long getLastUpdBy() {
+    public Long getLastUpdBy() {
         return lastUpdBy;
     }
 
-    public void setLastUpdBy(long lastUpdBy) {
+    public void setLastUpdBy(Long lastUpdBy) {
         this.lastUpdBy = lastUpdBy;
     }
 
-    public long getOrderAfterId() {
+    public Long getOrderAfterId() {
         return orderAfterId;
     }
 
-    public void setOrderAfterId(long orderAfterId) {
+    public void setOrderAfterId(Long orderAfterId) {
         this.orderAfterId = orderAfterId;
     }
 
-    public int getOrderAfterType() {
+    public Boolean getOrderAfterType() {
         return orderAfterType;
     }
 
-    public void setOrderAfterType(int orderAfterType) {
+    public void setOrderAfterType(Boolean orderAfterType) {
         this.orderAfterType = orderAfterType;
     }
 
@@ -250,11 +258,11 @@ public class EntityOrderRevoke {
         this.orderAfterAmount = orderAfterAmount;
     }
 
-    public int getBusinessResults() {
+    public Boolean getBusinessResults() {
         return businessResults;
     }
 
-    public void setBusinessResults(int businessResults) {
+    public void setBusinessResults(Boolean businessResults) {
         this.businessResults = businessResults;
     }
 
@@ -263,30 +271,30 @@ public class EntityOrderRevoke {
     }
 
     public void setRemarks(String remarks) {
-        this.remarks = remarks;
+        this.remarks = remarks == null ? null : remarks.trim();
     }
 
-    public int getForumResults() {
+    public Integer getForumResults() {
         return forumResults;
     }
 
-    public void setForumResults(int forumResults) {
+    public void setForumResults(Integer forumResults) {
         this.forumResults = forumResults;
     }
 
-    public int getOrderAfterStatus() {
+    public Byte getOrderAfterStatus() {
         return orderAfterStatus;
     }
 
-    public void setOrderAfterStatus(int orderAfterStatus) {
+    public void setOrderAfterStatus(Byte orderAfterStatus) {
         this.orderAfterStatus = orderAfterStatus;
     }
 
-    public int getRufundCause() {
+    public Byte getRufundCause() {
         return rufundCause;
     }
 
-    public void setRufundCause(int rufundCause) {
+    public void setRufundCause(Byte rufundCause) {
         this.rufundCause = rufundCause;
     }
 
@@ -295,14 +303,14 @@ public class EntityOrderRevoke {
     }
 
     public void setRufundRemark(String rufundRemark) {
-        this.rufundRemark = rufundRemark;
+        this.rufundRemark = rufundRemark == null ? null : rufundRemark.trim();
     }
 
-    public int getOrderAfterStar() {
+    public Integer getOrderAfterStar() {
         return orderAfterStar;
     }
 
-    public void setOrderAfterStar(int orderAfterStar) {
+    public void setOrderAfterStar(Integer orderAfterStar) {
         this.orderAfterStar = orderAfterStar;
     }
 
@@ -311,7 +319,7 @@ public class EntityOrderRevoke {
     }
 
     public void setOrderAfterEvaluate(String orderAfterEvaluate) {
-        this.orderAfterEvaluate = orderAfterEvaluate;
+        this.orderAfterEvaluate = orderAfterEvaluate == null ? null : orderAfterEvaluate.trim();
     }
 
     public String getUserTel() {
@@ -319,7 +327,7 @@ public class EntityOrderRevoke {
     }
 
     public void setUserTel(String userTel) {
-        this.userTel = userTel;
+        this.userTel = userTel == null ? null : userTel.trim();
     }
 
     public String getUserName() {
@@ -327,7 +335,7 @@ public class EntityOrderRevoke {
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.userName = userName == null ? null : userName.trim();
     }
 
     public BigDecimal getFreightAmount() {
@@ -351,7 +359,7 @@ public class EntityOrderRevoke {
     }
 
     public void setExpressCompany(String expressCompany) {
-        this.expressCompany = expressCompany;
+        this.expressCompany = expressCompany == null ? null : expressCompany.trim();
     }
 
     public String getExpressNum() {
@@ -359,14 +367,14 @@ public class EntityOrderRevoke {
     }
 
     public void setExpressNum(String expressNum) {
-        this.expressNum = expressNum;
+        this.expressNum = expressNum == null ? null : expressNum.trim();
     }
 
-    public long getRefundSerialNumber() {
+    public Long getRefundSerialNumber() {
         return refundSerialNumber;
     }
 
-    public void setRefundSerialNumber(long refundSerialNumber) {
+    public void setRefundSerialNumber(Long refundSerialNumber) {
         this.refundSerialNumber = refundSerialNumber;
     }
 
@@ -375,14 +383,14 @@ public class EntityOrderRevoke {
     }
 
     public void setRefundFailureReason(String refundFailureReason) {
-        this.refundFailureReason = refundFailureReason;
+        this.refundFailureReason = refundFailureReason == null ? null : refundFailureReason.trim();
     }
 
-    public long getSupplierId() {
+    public Long getSupplierId() {
         return supplierId;
     }
 
-    public void setSupplierId(long supplierId) {
+    public void setSupplierId(Long supplierId) {
         this.supplierId = supplierId;
     }
 
@@ -391,22 +399,22 @@ public class EntityOrderRevoke {
     }
 
     public void setSupplierName(String supplierName) {
-        this.supplierName = supplierName;
+        this.supplierName = supplierName == null ? null : supplierName.trim();
     }
 
-    public int getIsWhole() {
+    public Boolean getIsWhole() {
         return isWhole;
     }
 
-    public void setIsWhole(int isWhole) {
+    public void setIsWhole(Boolean isWhole) {
         this.isWhole = isWhole;
     }
 
-    public int getPaymentType() {
+    public Byte getPaymentType() {
         return paymentType;
     }
 
-    public void setPaymentType(int paymentType) {
+    public void setPaymentType(Byte paymentType) {
         this.paymentType = paymentType;
     }
 
@@ -423,7 +431,7 @@ public class EntityOrderRevoke {
     }
 
     public void setPaymentAccount(String paymentAccount) {
-        this.paymentAccount = paymentAccount;
+        this.paymentAccount = paymentAccount == null ? null : paymentAccount.trim();
     }
 
     public String getRefundSn() {
@@ -431,6 +439,6 @@ public class EntityOrderRevoke {
     }
 
     public void setRefundSn(String refundSn) {
-        this.refundSn = refundSn;
+        this.refundSn = refundSn == null ? null : refundSn.trim();
     }
 }

@@ -7,7 +7,7 @@ import java.util.Date;
  * @date 09:10 8/17/18
  * @project order-svr
  */
-public class EntityOrderPayment {
+public class EntityOrderPurchase {
     private long id;
 
     //订单编号

@@ -1,9 +1,14 @@
-package com.noriental.cloud.order.bean.po;
+package com.noriental.cloud.order.bean.doentity;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class EntityOrderRevoke {
+/**
+ * @author dongyl
+ * @date 21:48 8/19/18
+ * @project demo-spring-cloud
+ */
+public class OrderRevokeDo {
     private long id;
 
     private long orderDeliveryId;
@@ -48,7 +53,7 @@ public class EntityOrderRevoke {
 
     private String remarks;
 
-    private int forumResults;
+    private Integer forumResults;
 
     private int orderAfterStatus;
 
@@ -89,6 +94,10 @@ public class EntityOrderRevoke {
     private String paymentAccount;
 
     private String refundSn;
+
+    private long activeGroupId;
+    private int activityType;
+    private long paymentOrderId;
 
     public long getId() {
         return id;
@@ -266,11 +275,11 @@ public class EntityOrderRevoke {
         this.remarks = remarks;
     }
 
-    public int getForumResults() {
+    public Integer getForumResults() {
         return forumResults;
     }
 
-    public void setForumResults(int forumResults) {
+    public void setForumResults(Integer forumResults) {
         this.forumResults = forumResults;
     }
 
@@ -432,5 +441,29 @@ public class EntityOrderRevoke {
 
     public void setRefundSn(String refundSn) {
         this.refundSn = refundSn;
+    }
+
+    public long getActiveGroupId() {
+        return activeGroupId;
+    }
+
+    public void setActiveGroupId(long activeGroupId) {
+        this.activeGroupId = activeGroupId;
+    }
+
+    public int getActivityType() {
+        return activityType;
+    }
+
+    public void setActivityType(int activityType) {
+        this.activityType = activityType;
+    }
+
+    public long getPaymentOrderId() {
+        return paymentOrderId;
+    }
+
+    public void setPaymentOrderId(long paymentOrderId) {
+        this.paymentOrderId = paymentOrderId;
     }
 }

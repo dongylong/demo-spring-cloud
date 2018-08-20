@@ -2,11 +2,10 @@ package com.noriental.cloud.order.mapper;
 
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.github.miemiedev.mybatis.paginator.domain.PageList;
+import com.noriental.cloud.order.bean.doentity.OrderRevokeDo;
 import com.noriental.cloud.order.bean.po.EntityOrderRevoke;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * @author dongyl
@@ -21,7 +20,8 @@ public interface EntityOrderRevokeMapper {
     EntityOrderRevoke selectByPrimaryKey(Long id);
 
     int updateByPrimaryKey(EntityOrderRevoke record);
-    EntityOrderRevoke selectByOrderAfterId(@Param("orderAfterId")long orderAfterId);
+    OrderRevokeDo selectByOrderAfterId(@Param("orderAfterId")long orderAfterId);
     PageList<EntityOrderRevoke> selectPagesByOrderAfterId(@Param("orderAfterId")long orderAfterId, PageBounds pageBounds);
 
+    int updateOrderRevokeResults(EntityOrderRevoke orderRevoke);
 }

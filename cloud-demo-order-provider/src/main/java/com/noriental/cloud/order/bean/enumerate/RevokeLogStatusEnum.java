@@ -5,7 +5,7 @@ package com.noriental.cloud.order.bean.enumerate;
  * @date 11:57 8/19/18
  * @project demo-spring-cloud
  */
-public enum RevokeLogStatus {
+public enum RevokeLogStatusEnum {
     BUSINESS_PASSED_APPLICATIONS(1, "运营审核退单中"),
     BUSINESS_REJECT_APPLICATIONS(2, "运营审核退单中"),
     PLATFORM_PASSED_APPLICATIONS(3, "平台同意申请"),
@@ -44,13 +44,13 @@ public enum RevokeLogStatus {
         return msg;
     }
 
-    RevokeLogStatus(int code, String msg) {
+    RevokeLogStatusEnum(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
     public static String getName(int code) {
-        for (RevokeLogStatus c : RevokeLogStatus.values()) {
+        for (RevokeLogStatusEnum c : RevokeLogStatusEnum.values()) {
             if (c.getCode()==code) {
                 return c.msg;
             }
