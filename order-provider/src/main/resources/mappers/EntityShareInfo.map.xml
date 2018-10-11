@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloud.order.mapper.EntityShareInfoMapper">
+    <resultMap id="BaseResultMap" type="com.cloud.order.bean.po.EntityShareInfo">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="create_by" property="createBy" jdbcType="VARCHAR"/>
+        <result column="plat_form" property="platForm" jdbcType="VARCHAR"/>
+        <result column="share_by" property="shareBy" jdbcType="BIGINT"/>
+        <result column="shop_id" property="shopId" jdbcType="BIGINT"/>
+        <result column="sku_id" property="skuId" jdbcType="BIGINT"/>
+        <result column="source_type" property="sourceType" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="plat_form_type" property="platFormType" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+          id, sku_id,create_by, plat_form, share_by, shop_id, source_type, create_time, update_time, plat_form_type
+</sql>
+
+    <!-- 根据主键集合查询分享信息 -->
+    <select id="getShareInfoByIds" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM
+        share_info a
+        WHERE
+        a.sku_id IN
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+</mapper>

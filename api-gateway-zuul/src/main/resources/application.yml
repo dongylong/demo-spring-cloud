@@ -1,0 +1,24 @@
+server:
+  port: 7810
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.noriental: DEBUG
+spring:
+  application:
+    name: api-gateway-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:password@localhost:8761/eureka
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: movie-service
+    api-b:
+      path: /api-b/**
+      serviceId: order-service

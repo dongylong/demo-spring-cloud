@@ -1,0 +1,9 @@
+zuul:
+  routes:
+    service-a:
+      path: /service-a/**
+      serviceId: movie-service
+    service-b:
+      path: /service-b/**
+#      url: http://localhost:8001/
+      url: movie-service

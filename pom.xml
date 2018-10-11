@@ -9,12 +9,20 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>cloud-demo-discovery-eureka</module>
-        <module>cloud-demo-movie-consumer</module>
-        <module>cloud-demo-movie-consumer-ribbon</module>
-        <module>cloud-demo-order-consumer-ribbon</module>
-        <module>cloud-demo-user-provider</module>
-        <module>cloud-demo-order-provider</module>
+        <module>discovery-eureka</module>
+        <module>movie-consumer</module>
+        <module>movie-consumer-ribbon</module>
+        <module>order-consumer-ribbon</module>
+        <module>movie-consumer-feign</module>
+        <module>user-provider</module>
+        <module>order-provider</module>
+        <module>hystrix-dashboard</module>
+        <module>api-gateway-zuul</module>
+        <module>api-gateway-dynamic-route-zuul</module>
+        <module>api-gateway-dynamic-filter-zuul</module>
+        <module>config-server</module>
+        <module>trace-svr</module>
+        <module>zipkin-svr</module>
 
     </modules>
 
@@ -37,6 +45,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>new.logstash.logback</groupId>
+                <artifactId>logstash-logback.encoder</artifactId>
+                <version>4.6</version>
+            </dependency>
             <dependency>
                 <groupId>latte2</groupId>
                 <artifactId>mybatis_paginator-shared-jar</artifactId>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloud.order.mapper.EntityOrderRevokeMapper">
+    <resultMap id="BaseResultMap" type="com.cloud.order.bean.po.EntityOrderRevoke">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="order_delivery_id" property="orderDeliveryId" jdbcType="BIGINT"/>
+        <result column="order_delivery_code" property="orderDeliveryCode" jdbcType="BIGINT"/>
+        <result column="product_code" property="productCode" jdbcType="VARCHAR"/>
+        <result column="product_id" property="productId" jdbcType="BIGINT"/>
+        <result column="product_name" property="productName" jdbcType="VARCHAR"/>
+        <result column="product_pic_url" property="productPicUrl" jdbcType="VARCHAR"/>
+        <result column="sku_id" property="skuId" jdbcType="BIGINT"/>
+        <result column="sku_code" property="skuCode" jdbcType="VARCHAR"/>
+        <result column="sku_name" property="skuName" jdbcType="VARCHAR"/>
+        <result column="count" property="count" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="create_by" property="createBy" jdbcType="BIGINT"/>
+        <result column="consignee_name" property="consigneeName" jdbcType="VARCHAR"/>
+        <result column="consignee_mobile" property="consigneeMobile" jdbcType="VARCHAR"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="last_upd_by" property="lastUpdBy" jdbcType="BIGINT"/>
+        <result column="order_after_id" property="orderAfterId" jdbcType="BIGINT"/>
+        <result column="order_after_type" property="orderAfterType" jdbcType="BIT"/>
+        <result column="order_after_amount" property="orderAfterAmount" jdbcType="DECIMAL"/>
+        <result column="business_results" property="businessResults" jdbcType="BIT"/>
+        <result column="remarks" property="remarks" jdbcType="VARCHAR"/>
+        <result column="forum_results" property="forumResults" jdbcType="INTEGER"/>
+        <result column="order_after_status" property="orderAfterStatus" jdbcType="TINYINT"/>
+        <result column="rufund_cause" property="rufundCause" jdbcType="TINYINT"/>
+        <result column="rufund_remark" property="rufundRemark" jdbcType="VARCHAR"/>
+        <result column="order_after_star" property="orderAfterStar" jdbcType="INTEGER"/>
+        <result column="order_after_evaluate" property="orderAfterEvaluate" jdbcType="VARCHAR"/>
+        <result column="user_tel" property="userTel" jdbcType="VARCHAR"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="freight_amount" property="freightAmount" jdbcType="DECIMAL"/>
+        <result column="fav_bean" property="favBean" jdbcType="DECIMAL"/>
+        <result column="express_company" property="expressCompany" jdbcType="VARCHAR"/>
+        <result column="express_num" property="expressNum" jdbcType="VARCHAR"/>
+        <result column="refund_serial_number" property="refundSerialNumber" jdbcType="BIGINT"/>
+        <result column="refund_failure_reason" property="refundFailureReason" jdbcType="VARCHAR"/>
+        <result column="supplier_id" property="supplierId" jdbcType="BIGINT"/>
+        <result column="supplier_name" property="supplierName" jdbcType="VARCHAR"/>
+        <result column="is_whole" property="isWhole" jdbcType="BIT"/>
+        <result column="payment_type" property="paymentType" jdbcType="TINYINT"/>
+        <result column="payment_amount" property="paymentAmount" jdbcType="DECIMAL"/>
+        <result column="payment_account" property="paymentAccount" jdbcType="VARCHAR"/>
+        <result column="refund_sn" property="refundSn" jdbcType="VARCHAR"/>
+    </resultMap>
+    <resultMap id="BaseResultMapDO" type="com.cloud.order.bean.doentity.OrderRevokeDo">
+        <result column="active_group_id" property="activeGroupId" jdbcType="BIGINT"/>
+        <result column="activity_type" property="activityType" jdbcType="TINYINT"/>
+        <result column="payment_order_id" property="paymentOrderId" jdbcType="BIGINT"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, order_delivery_id, order_delivery_code, product_code, product_id, product_name, 
+    product_picurl, sku_id, sku_code, sku_name, count, create_time, create_by, consignee_name, 
+    consignee_mobile, update_time, last_upd_by, order_after_id, order_after_type, order_after_amount, 
+    business_results, remarks, forum_results, order_after_status, rufund_cause, rufund_remark, 
+    order_after_star, order_after_evaluate, user_tel, user_name, freight_amount, fav_bean, 
+    express_company, express_num, refund_serial_number, refund_failure_reason, supplier_id, 
+    supplier_name, is_whole, payment_type, payment_amount, payment_account, refund_sn
+  </sql>
+    <sql id="Base_Column_List_Delivery">
+    active_group_id,activity_type,payment_order_id
+  </sql>
+    <select id="selectPagesByOrderAfterId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from entity_order_revoke
+        where order_after_id = #{orderAfterId}
+        ORDER BY a.id DESC
+    </select>
+    <select id="selectByOrderAfterId"
+            resultType="com.cloud.order.bean.doentity.OrderRevokeDo">
+        SELECT
+        <include refid="Base_Column_List"/>,
+        <include refid="Base_Column_List_Delivery"/>
+        from entity_order_revoke
+        where order_after_id = #{orderAfterId}
+        ORDER BY a.id DESC
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from entity_order_revoke
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from entity_order_revoke
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.dongyl.ordersvr.bean.po.EntityOrderRevoke">
+    insert into entity_order_revoke (id, order_delivery_id, order_delivery_code, 
+      product_code, product_id, product_name, 
+      product_picurl, sku_id, sku_code, 
+      sku_name, count, create_time, 
+      create_by, consignee_name, consignee_mobile, 
+      update_time, last_upd_by, order_after_id, 
+      order_after_type, order_after_amount, business_results, 
+      remarks, forum_results, order_after_status, 
+      rufund_cause, rufund_remark, order_after_star, 
+      order_after_evaluate, user_tel, user_name, 
+      freight_amount, fav_bean, express_company, 
+      express_num, refund_serial_number, refund_failure_reason, 
+      supplier_id, supplier_name, is_whole, 
+      payment_type, payment_amount, payment_account, 
+      refund_sn)
+    values (#{id,jdbcType=BIGINT}, #{orderDeliveryId,jdbcType=BIGINT}, #{orderDeliveryCode,jdbcType=BIGINT}, 
+      #{productCode,jdbcType=VARCHAR}, #{productId,jdbcType=BIGINT}, #{productName,jdbcType=VARCHAR}, 
+      #{productPicurl,jdbcType=VARCHAR}, #{skuId,jdbcType=BIGINT}, #{skuCode,jdbcType=VARCHAR}, 
+      #{skuName,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createBy,jdbcType=BIGINT}, #{consigneeName,jdbcType=VARCHAR}, #{consigneeMobile,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{lastUpdBy,jdbcType=BIGINT}, #{orderAfterId,jdbcType=BIGINT}, 
+      #{orderAfterType,jdbcType=BIT}, #{orderAfterAmount,jdbcType=DECIMAL}, #{businessResults,jdbcType=BIT}, 
+      #{remarks,jdbcType=VARCHAR}, #{forumResults,jdbcType=INTEGER}, #{orderAfterStatus,jdbcType=TINYINT}, 
+      #{rufundCause,jdbcType=TINYINT}, #{rufundRemark,jdbcType=VARCHAR}, #{orderAfterStar,jdbcType=INTEGER}, 
+      #{orderAfterEvaluate,jdbcType=VARCHAR}, #{userTel,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{freightAmount,jdbcType=DECIMAL}, #{favBean,jdbcType=DECIMAL}, #{expressCompany,jdbcType=VARCHAR}, 
+      #{expressNum,jdbcType=VARCHAR}, #{refundSerialNumber,jdbcType=BIGINT}, #{refundFailureReason,jdbcType=VARCHAR}, 
+      #{supplierId,jdbcType=BIGINT}, #{supplierName,jdbcType=VARCHAR}, #{isWhole,jdbcType=BIT}, 
+      #{paymentType,jdbcType=TINYINT}, #{paymentAmount,jdbcType=DECIMAL}, #{paymentAccount,jdbcType=VARCHAR}, 
+      #{refundSn,jdbcType=VARCHAR})
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.dongyl.ordersvr.bean.po.EntityOrderRevoke">
+    update entity_order_revoke
+    set order_delivery_id = #{orderDeliveryId,jdbcType=BIGINT},
+      order_delivery_code = #{orderDeliveryCode,jdbcType=BIGINT},
+      product_code = #{productCode,jdbcType=VARCHAR},
+      product_id = #{productId,jdbcType=BIGINT},
+      product_name = #{productName,jdbcType=VARCHAR},
+      product_pic_url = #{productPicUrl,jdbcType=VARCHAR},
+      sku_id = #{skuId,jdbcType=BIGINT},
+      sku_code = #{skuCode,jdbcType=VARCHAR},
+      sku_name = #{skuName,jdbcType=VARCHAR},
+      count = #{count,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=BIGINT},
+      consignee_name = #{consigneeName,jdbcType=VARCHAR},
+      consignee_mobile = #{consigneeMobile,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      last_upd_by = #{lastUpdBy,jdbcType=BIGINT},
+      order_after_id = #{orderAfterId,jdbcType=BIGINT},
+      order_after_type = #{orderAfterType,jdbcType=BIT},
+      order_after_amount = #{orderAfterAmount,jdbcType=DECIMAL},
+      business_results = #{businessResults,jdbcType=BIT},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      forum_results = #{forumResults,jdbcType=INTEGER},
+      order_after_status = #{orderAfterStatus,jdbcType=TINYINT},
+      rufund_cause = #{rufundCause,jdbcType=TINYINT},
+      rufund_remark = #{rufundRemark,jdbcType=VARCHAR},
+      order_after_star = #{orderAfterStar,jdbcType=INTEGER},
+      order_after_evaluate = #{orderAfterEvaluate,jdbcType=VARCHAR},
+      user_tel = #{userTel,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      freight_amount = #{freightAmount,jdbcType=DECIMAL},
+      fav_bean = #{favBean,jdbcType=DECIMAL},
+      express_company = #{expressCompany,jdbcType=VARCHAR},
+      express_num = #{expressNum,jdbcType=VARCHAR},
+      refund_serial_number = #{refundSerialNumber,jdbcType=BIGINT},
+      refund_failure_reason = #{refundFailureReason,jdbcType=VARCHAR},
+      supplier_id = #{supplierId,jdbcType=BIGINT},
+      supplier_name = #{supplierName,jdbcType=VARCHAR},
+      is_whole = #{isWhole,jdbcType=BIT},
+      payment_type = #{paymentType,jdbcType=TINYINT},
+      payment_amount = #{paymentAmount,jdbcType=DECIMAL},
+      payment_account = #{paymentAccount,jdbcType=VARCHAR},
+      refund_sn = #{refundSn,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    <update id="updateOrderRevokeResults">
+
+    </update>
+</mapper>
