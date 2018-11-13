@@ -10,20 +10,24 @@
 
     <modules>
         <module>discovery-eureka</module>
+        <module>discovery-eureka-ha</module>
         <module>movie-consumer</module>
         <module>movie-consumer-ribbon</module>
         <module>order-consumer-ribbon</module>
         <module>movie-consumer-feign</module>
+        <module>movie-consumer-ribbon-with-hystrix</module>
         <module>user-provider</module>
         <module>order-provider</module>
         <module>hystrix-dashboard</module>
+        <module>movie-consumer-feign-with-hystrix</module>
         <module>api-gateway-zuul</module>
         <module>api-gateway-dynamic-route-zuul</module>
         <module>api-gateway-dynamic-filter-zuul</module>
         <module>config-server</module>
         <module>trace-svr</module>
         <module>zipkin-svr</module>
-
+        <module>cloud-bus-svr</module>
+        <module>hystrix-dashboard-turbine</module>
     </modules>
 
     <properties>

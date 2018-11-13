@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8080
+      profile: dev
+      label: master
+    bus:
+      trace:
+        enabled: true
+  application:
+    name: cloud-bus-svr
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.noriental: DEBUG

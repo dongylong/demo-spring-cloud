@@ -1,5 +1,6 @@
 package com.cloud.movie.controller;
 
+import com.cloud.movie.bean.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +22,8 @@ public class MovieController {
     private String userServicePath;
 
     @GetMapping("/movie/{id}")
-    public String findUser(@PathVariable Long id) {
-        return this.restTemplate.getForObject(userServicePath +id,String.class);
+    public User findUser(@PathVariable Long id) {
+        return this.restTemplate.getForObject(userServicePath +id,User.class);
     }
 
 }

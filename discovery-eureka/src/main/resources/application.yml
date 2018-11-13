@@ -13,6 +13,11 @@ eureka:
   instance:
     statusPageUrlPath: ${management.context-path}/info
     healthCheckUrlPath: ${management.context-path}/health
+    prefer-ip-address: true
+    instance-id: :${spring.application.name}:${spring.application.instance_id:${server.port}
+    metadata-map:
+      zone: ABC
+      dongyl: BBC
 security:
   user:
     name: user
@@ -24,3 +29,7 @@ management:
 #    path: /appInfo
 #  health:
 #    path: /checkHealth
+spring:
+  application:
+    name: discovery-eureka
+    instance_id:

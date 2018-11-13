@@ -1,0 +1,24 @@
+server:
+  port: 8031
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.noriental: DEBUG
+spring:
+  application:
+    name: turbine
+
+turbine:
+  aggregator:
+    cluster
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id}:${server.port}
