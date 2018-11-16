@@ -90,7 +90,7 @@
     delete from entity_order_revoke
     where id = #{id,jdbcType=BIGINT}
   </delete>
-    <insert id="insert" parameterType="com.dongyl.ordersvr.bean.po.EntityOrderRevoke">
+    <insert id="insert" parameterType="com.framework.ordersvr.bean.po.EntityOrderRevoke">
     insert into entity_order_revoke (id, order_delivery_id, order_delivery_code, 
       product_code, product_id, product_name, 
       product_picurl, sku_id, sku_code, 
@@ -122,7 +122,7 @@
       #{paymentType,jdbcType=TINYINT}, #{paymentAmount,jdbcType=DECIMAL}, #{paymentAccount,jdbcType=VARCHAR}, 
       #{refundSn,jdbcType=VARCHAR})
   </insert>
-    <update id="updateByPrimaryKey" parameterType="com.dongyl.ordersvr.bean.po.EntityOrderRevoke">
+    <update id="updateByPrimaryKey" parameterType="com.framework.ordersvr.bean.po.EntityOrderRevoke">
     update entity_order_revoke
     set order_delivery_id = #{orderDeliveryId,jdbcType=BIGINT},
       order_delivery_code = #{orderDeliveryCode,jdbcType=BIGINT},

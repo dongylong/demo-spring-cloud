@@ -57,7 +57,7 @@
     delete from entity_order_payment
     where id = #{id}
   </delete>
-  <insert id="insert" parameterType="com.dongyl.ordersvr.bean.OrderPayment" >
+  <insert id="insert" parameterType="com.framework.ordersvr.bean.OrderPayment" >
     insert into entity_order_payment (id, order_code, order_status, 
       order_pay_code, buyer_name, pay_type, 
       pay_remark, transport_money, favor_beans, 
@@ -86,7 +86,7 @@
       )
   </insert>
 
-  <update id="updateByPrimaryKey" parameterType="com.dongyl.ordersvr.bean.po.EntityOrderPayment" >
+  <update id="updateByPrimaryKey" parameterType="com.framework.ordersvr.bean.po.EntityOrderPayment" >
     update entity_order_payment
     set order_code = #{orderCode,jdbcType=BIGINT},
       order_status = #{orderStatus,jdbcType=TINYINT},

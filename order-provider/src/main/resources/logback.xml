@@ -105,7 +105,7 @@
     <logger name="org.eclipse.jetty" level="INFO" />
     <logger name="com.alibaba.dubbo" level="INFO"/>
 
-    <logger name="com.dongyl.dao" level="DEBUG">
+    <logger name="com.framework.dao" level="DEBUG">
         <appender-ref ref="SQL" />
     </logger>
     <logger name="com.alibaba.druid.filter.stat.StatFilter" level="ERROR" additivity="false">

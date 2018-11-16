@@ -2,7 +2,7 @@ package com.cloud.order.bean.request;
 
 import com.cloud.order.bean.enumerate.RevokeLogStatusEnum;
 import com.cloud.order.bean.enumerate.RevokeTypeEnum;
-import com.dongyl.validate.bean.BaseRequest;
+import com.framework.bean.request.BaseRequest;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;

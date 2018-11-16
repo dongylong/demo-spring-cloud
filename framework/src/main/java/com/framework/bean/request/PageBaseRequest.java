@@ -1,16 +1,12 @@
-package com.cloud.order.bean.request;
-
-
-import com.cloud.order.bean.constraints.Pageable;
-import com.framework.bean.request.BaseRequest;
+package com.framework.bean.request;
 
 /**
- * @author chenlihua
- * @date 2016/6/17
- * @time 18:42
+ * @author dongyl
+ * @date 14:22 11/16/18
+ * @project demo-spring-cloud
  */
-@Pageable
-public class PageBaseRequest extends BaseRequest {
+
+public class PageBaseRequest {
     private int pageNo = 1;
     private int pageSize = 10;
 

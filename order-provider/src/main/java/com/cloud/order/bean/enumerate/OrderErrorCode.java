@@ -1,7 +1,7 @@
 package com.cloud.order.bean.enumerate;
 
-import com.dongyl.utils.json.JsonUtil;
-import com.dongyl.validate.error.ErrorCode;
+import com.framework.utils.json.JsonUtil;
+import com.framework.validate.error.ErrorCode;
 
 import java.util.Map;
 import java.util.TreeMap;

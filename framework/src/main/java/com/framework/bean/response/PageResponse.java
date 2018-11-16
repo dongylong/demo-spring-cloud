@@ -1,13 +1,12 @@
-package com.cloud.order.bean.request;
+package com.framework.bean.response;
 
-import com.framework.bean.response.CommonDes;
 import com.github.miemiedev.mybatis.paginator.domain.Paginator;
 
 import java.util.List;
 
 /**
  * @author dongyl
- * @date 11:37 8/19/18
+ * @date 14:27 11/16/18
  * @project demo-spring-cloud
  */
 public class PageResponse<T> extends CommonDes {
@@ -51,5 +50,4 @@ public class PageResponse<T> extends CommonDes {
     public List<T> getList() {
         return list;
     }
-
 }
