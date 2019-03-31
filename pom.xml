@@ -28,6 +28,7 @@
         <module>zipkin-svr</module>
         <module>cloud-bus-svr</module>
         <module>framework</module>
+        <module>m-gateway-zuul</module>
         <module>hystrix-dashboard-turbine</module>
     </modules>
 
